@@ -1,0 +1,8 @@
+This will help us to search in big files, with pattern instead of using an exact text.
+
+Each regular expression will be used with search commands in linux,like vi, vim,grep, awk,sed commands.
+
+`grep` command
+   This command will help us to search for certain text in a
+    file or it can also be used with regular expression to help search in a file.
+    Once a grep command is applied to file 

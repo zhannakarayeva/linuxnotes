@@ -1,0 +1,145 @@
+This will help us to search in big files, with 
+patterns instead of using an exact text. 
+
+
+Each regular expression will be used with search commands in linux, 
+like vi, vim, grep, awk, sed commands. 
+
+`grep` command
+    `grep`--> Global Regular Expressions Print
+    This command will help us to search for certain texts in a file 
+    or it can also be used with regular expressions to help search in a file. 
+    Once a grep command is applied to file it will return only the lines 
+    that contains the pattern/text in the file. 
+    -P and -E option. What are the differences between them? 
+    Is one better than the other why not or why? 
+
+Search for how can we handle if some delimiters for cut command is repeated.
+
+cp` command 
+    It will copy the source content and paste it to destination path. 
+    Syntax ->  `copy source destinationPath`
+    Common Options:
+        -i: It will prompt a question before source overrides the 
+        destination content.
+        -r or -R:This will copy recursively, copying the directory 
+        as well as its all contents.
+        -b: Will create a backup file for destination content 
+        before it is overriden. 
+
+vi text editor 
+    Press `I` to start typing in vi editor.
+    When INSERT Mode is not active:
+        Press `h` to go left, 
+        Press `l` to go right,
+        Press `j` to go down,
+        Press `k` to go up in the file using vi editor.
+        When pressed `dd` it will remove the line.
+        Press `u` to undo last action. 
+        Press `yy` to copy the line.
+        Press `p` to paste to a line.
+        Press `o` creates a new line under the current line you are looking.
+        Press `0` (zero) to go beginning of a line,
+        Press `$` to go end of a line. (Shift + 4)
+    In order to save your changes:
+        Make sure you are not in INSERT MODE,if you are in INSERT mode,
+        press `ESC` button to exit from INSERT Mode.
+        Press `:` (coloumn) in your keyboard. 
+        Then on the bottom you will see this coloumn 
+        Press `wq` and `ENTER` to save and exit. OR,
+        if you don't want to save it you can press 
+        `q!` after the coloumn. 
+
+`less` command
+    It will help you navigate through a file. 
+    Press `:` (coloumn) then Press `q` it will exit from reader.
+
+    TO Search in a file with less command:
+        Press `/` then type the word you want to search. Then `ENTER`.
+
+NOTE! If you get lost in any process and not able to type something, 
+to force a quit on that process press `CONTROL + C`.
+
+`more`  command 
+    This is like a less command but views the file forward only.
+    Press `space` to go forward. 
+    To exit you can press `CONTROL + C`.
+
+`tail` command
+    By default it displays the last 10 lines of a file. 
+        -n: By using this option we could modify the number of lines 
+            we will see.
+        -f: Using this option the read of a file will not be closed 
+            and any live changes that is happening to a file can be 
+            tracked. Very important when tracking live log files. 
+
+`head` command 
+    By default it displays the first 10 lines of a file. 
+        -n: By using this option we could modify the number of lines 
+            we will see.
+
+`tac` command 
+    It reverses the order of lines so last line will be displayed first. 
+
+
+`find` command 
+    It allows us to search for files and directories in a 
+    directory hierarchy based on a user-given expression and can perform
+    user-specified actions on each matched file.
+
+    Syntax -> `find [directorytosearch] [options] [expression]
+        * directorytosearch is a directory where search will be completed on.
+        * options: Modifiers that alter how `find` command operates.
+        * expression: find command will do search for this expression.
+
+    Options:
+        -name: It will search by file names.
+        -iname: It will search by a name regardless of the case.
+        -type: Specify the type of a content, `d` is for directory,
+            `f` is for file type. 
+        -size: Search by size.
+        -mtime: Search by modification time. 
+        -user: Search by file owner.
+        -delete: It deletes the content find command finds.
+        -exec: After this option you could write a command that will be 
+            applied to all your found contents.
+            After writing a command finish with ` \;` in order -> `space backslash semi coloumn`
+            find -iname "*.txt" -exec mv {} ./Notes/LinuxNotes \;
+
+
+        # I want to find out all text files under current directory.
+        # They should have the extension .txt
+
+Control Operators in Linux Bash 
+    We can use these operators to combine commands and achieve 
+    one action. 
+
+    1- Semicolon(;)
+        Executes the commands sequentially.
+        * `command1` ; `command2` 
+            The code above will execute command1 then command2
+            Ex: -> `cd / ; ls`
+
+    2- && (And) Operator
+        Executes second command only if the first command is successful.
+        * `command1` && `command2`
+        find / -name "any" && echo "command1 is succesful"
+
+    3- || (Or) Operator
+        Executes the second command only if the first command fails.
+        
+        find / -name "any" || echo "command1 is not succesful"
+
+    4- | (Pipe) Operator
+        Send output of first command as an input to second command.
+
+Cut Command 
+    It can be used for extracting certain sections, specified by 
+    delimiter and field number.
+
+    > operator after a command  (heredoc)
+    >> operator after a command 
+    Find out the differences.
+    
+    1. **tee**
+-Read from input and write to output and files.

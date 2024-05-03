@@ -1,0 +1,226 @@
+'tee' - 
+
+
+
+
+````whoami` -> Display the username of the current user. 
+
+`id` -> Display the user id , and group ID's that user is in. 
+
+
+`passwd` -> Using this command we can change the password of a current user. 
+
+`users` -> Shows the list of users that are currently logged in.
+
+`w` -> Display the who is logged in and what they are doing.
+
+`last` -> Display last logged-in usersa. 
+
+`useradd` -> This command creates a new user. 
+    Syntax -> `useradd newUsersName` 
+
+`groupadd` -> Will create a new group.
+    Syntax -> `groupadd newGroupsName` 
+    Note!: The main reason behind creating groups is sharing file permissions
+    for groups rather than adjusting each user individually.
+
+#How can I add user into the group? 
+`sudo usermod -aG groupName userName`
+
+
+# Editing the sudoers file 
+    sudoers file will determine which user can use the sudo command. 
+    If a user is not mentioned here, it can't use the sudo command. 
+    We can use `sudo visudo` command to edit sudoers file. 
+    Note: Physically the sudoers file is located in `/etc/sudoers`
+    :
+    If you want to give a user to sudo priviliges you should add 
+    line below in to sudoers file
+    `username ALL=(ALL) ALL`
+
+File Permissions
+Read(r): Allows file to be read. For directories, it allows the listing of 
+    its contents. 
+Write(w): Allows file to be modified. For directories, it allows creating 
+    or deleting files inside. 
+Execute(x): Allows a file to be run as a program. For directories, 
+    it allows access to files and sub-directories. 
+
+************************************
+OWNERSHIP
+User(u): The *owner* of the file. Typically the person who created the file. 
+Group(g): The *group* that owns the file. Members of this group 
+    will inherit group's permission on the file/directory. 
+Others(o): Everyone else. Permissions set here apply to all other users. 
+
+    IN order to view permission of contents in a directory we can use 
+    `ls -l` command. Example output:
+    `drwxrwxr-x 3 ec2-user ec2-user 24 Oct 14 17:13 Notes`
+        Since the permission letters start with `d` it means 
+            Notes is a directory.
+            Next 3 letters determines the permission for user
+                (rwx) user has read, write and execute permission.
+            Next 3 letters after the user permissions determines group perm.
+                (rwx) group has read, write and execute permission.
+            Last 3 letters determines permissions for all other users. 
+                (r-x) all others has read and execute permissions. 
+
+*********************
+Editing the permissions on a file/directory
+We can edit permissions in 2 ways:
+    Symbolic Mode:
+        We can add, subtract, or set permissions for file/directory using 
+        symbolic references. 
+        Examples:
+            `chmod u+x filename` -> this command adds exec. perm. for user.
+            `chmod u-r filename` -> this will remove read perm. from user. 
+            `chmod g-w filename` -> this will remove write perm. from group. 
+            `chmod o=x filename` -> this sets other's to exec. only. 
+            `chmod a+wrx filename` -> this adds read,write and exec. perm. for all types of user. 
+            `chmod a-wx filename` -> for all types of user,this will make file read only. 
+            `chmod u+rwx,g=r,o-rwx filename` -> for user it adds r,w,x and for group it sets
+                to read only,for others it takes away all permisions.
+
+    Octal Mode: 
+        Each permission will be represented numerically. 
+        * Read = 4
+        * Write = 2
+        * Execute = 1
+
+        # The sum of these numbers will determine the permission for 
+        group, user and others. 
+        5 -> Read(4) + Execute(1)
+        6 -> Read(4) + Write(2)
+        7 -> Read(4) + Write(2)+ Execute(1)
+        3 -> Write(2) + Execute(1)
+
+        Examples:
+            `chmod 461 filename` -> `chmod u=r,g=rw,o=x filename`
+            `chmod 750 filename` -> `chmod u=rwx,g=rx,o=--- filename`
+
+
+#NOTE! --> When a user account is created it is assigned automatically to a primary group. 
+By default,linux create a group  with same name as the username and set it as a primary group. 
+
+#I want their primary group to be test
+usermode -g test user3--> this assigns primary group of user3 to test.
+
+
+
+
+
+
+
+
+
+`useradd`
+
+-c option
+   Description about the user you are creating
+      `useradd -c "This is a deveops user" username`
+
+-d option
+   Sets the home directory or the users account.
+      `useradd -d /home/custom username`
+
+-e option
+   Sets the expiration date for user. The date format is yyyy-mm-dd
+      `useradd -e 2023-10-19`
+
+-g option
+   Assigns primary group when creating user
+      `useradd -g groupName username`
+
+
+
+`groupadd` command
+   -g option
+      Set a specific group id.
+      `groupadd -g 1111 groupName`
+         The command above will create a group named groupName and will assign group id as 1111.
+   
+   -r option
+      Creates a system group for services.
+      `groupadd -r groupName`
+
+
+
+System Groups are created for system related services.
+They have specific features like
+   The group id of system groups are usually below 100.
+File ownership,usually system groups might own certain system config file 
+so they can work on it but no one else can.
+
+
+
+
+
+`usermod`   <--user modifications
+       
+    -c option
+         Modify the comment about user
+
+    -d option
+         Set a new home doirectory for the user.
+         NOTE! You might want to also move everything from original users directory to new home directory.
+         For that you can use mv command separately or add  *-m* option to mv also content of users home directory
+    -aG option
+         append group, so it will ass user in to another group.
+
+    -u option 
+         you could modify the users id
+    
+    -l option
+         Change the user;s login name 
+
+    -L option
+         Lock the users account 
+
+    -U option
+         Unlock the user's lock.
+      
+
+
+`groupdel` command
+     Delete the group.
+       Syntax -> groupdel groupname
+
+`userdel` command
+     Delete the username.
+       Syntax -> userdel user
+
+Modify the group 
+`groupmod` command
+    -n option
+        Rename the group name
+    `groupmod -n newGroupName oldGroupName`
+
+`gpasswd` 
+   Using this command we could also modify the groups.
+   -d option
+       `gpasswd -d user group`
+          user will be deleted from the group.
+
+   -A option
+       Set a list of admins in a group who can modify group
+       `gpasswd -A user1,user2` 
+            user1 and user2 will be admin in the group.
+
+If you want to display the members of the group 
+`getent group groupname`
+   this will diosplay the menmnbers of group called groupname.
+
+
+`chown`
+   Change the owner of the file/directory.
+   `chown :groupNmae filename`  --> Only chnage group of a file with groupname
+   `chown user:group filename`  --> this will make ownew userName group will be groupName
+   `chown user: filename`  --> this changes only the owner of file
+   `chown usewrName: fileName` --> this changes group of file to primary group of the `username` and 
+   owner of file to `username`.
+
+Homework:
+Create 5 different users, 3 of them should have sudoers command 
+but they should get their sudo privilege from the group they are in which is called test . 
+Create files for these three users and make user and group permission 7 and  others 0 permission. 
+and see how it effects group users see that file and other 2 users you created can see that file.

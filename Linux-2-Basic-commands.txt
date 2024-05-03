@@ -1,0 +1,329 @@
+## /-> it is dirct path. showing the begining of the directory
+## Relative Path is other directories or current working directory.
+** Path ** usability: change where command are going to be applied in directory. 
+
+Basic Linux Commands:
+`clear` command
+  This command will empty al; the texts from linux terminal.
+
+`pwd` command 
+  Present working directory 
+  It shows us which directory we are looking at currently.
+#NOTE! `pwd` command will always show our PATH  starting from the / as known as (room) -->/home/ec2-user
+If our PATH is startimg with / it means that it is starting from root.
+
+`cd` command
+  Change Present Working Directory
+  Stands for Change Directory.It is used to navigate throught the Linux file system, so we could change our 
+  present working directory using `CD` command.
+  **Note**-> 'home' directory means directory of the user Ex: zhannakarayeva
+COMMAN `CD` COMMANDS:
+  `cd ..` -->moves up one directory
+  `cd /`  -->moves to the root
+  `cd ~`  -->moves to users home directory
+
+#NOTE: When we are writing our PATH if we dont include slash`/`,
+ at the begining it will look folders under present working directory
+
+!!! cd /ec2-user <==Wont work if it is not under root
+!!! cd ec2-user <==it will look for this folder under present directory where you are right now
+
+cd /Downloads
+ssh -i "devops-techtorial.pem" ec2-user@ec2-54-204-93-218.compute-1.amazonaws.com    <--to connect to my ec2
+
+
+
+`whoami` command 
+   Will display your username
+
+
+
+
+
+`which $SHELL` command 
+  This will display type of shell you are using.
+  For linux OS default shell is `bash`.
+  NOTE! Every command we use can be called bash script.
+
+Qustion:How can i see what is in the present working directory?
+Answer: Using `ls` command.
+
+
+
+
+`ls` command 
+  Lists the content of present working directory by default. 
+`ls -l`  -->Long formatted versions of contens
+`ls -a`  -->This will also display the hidden and not hodden files and.
+`ls -/etc` --> will show content of /ect directory regardless of my current working dir.
+`ls -h`  -->Human readable size.
+        NOTE: All files or folders that start with '.' is hidden in Linux 
+        NOTE: When we list hidden files/folders, we will always see `.` and `..`
+        `.` references the folder itself,and
+        `..` references the parent folder of the current folder.
+
+
+
+
+
+`mkdir` command
+   Make Directory Command, it creates a new directory under the present working directory.
+   Syntax:-->`mkdir folderName`
+  NOTE! mkdir dev/configurations
+  #if directory `dev` is not present unedr the present working directory 
+  #the command above will generate an error.
+  NOTE! We can create multiple directories just by placeing them after command make directory.
+
+
+
+
+Q:How can i create fiel?
+A:Using nano editer, vi editor or `touch` comman.
+
+
+
+`touch` command 
+      It will create a new file under present working directory.
+      Syntax -> `touch filename` -> This will create a file name `fielname`.
+      NOTE! -> In the file anme we should include the extension which determines the type of file.
+    Extension is the part in the file name that comes after `.`
+    All picture have extensions like: .png, .jpeg, .heic, .img etc
+    All Word docs have extensions like: .doc, .docx
+    Excel files have extensions like: .xls
+    text files have: .text
+    
+!NOTE! Every command by DEFAULT works under present working directory. 
+HOWEVER, we can use path to change this default behaviour.
+
+
+
+
+
+REMOVE DIRECTORY COMMAND : 'rmdir' + name of directory OR PATH of directory
+'rmdir' command will remove the directory when the name of directory if it is empty. 
+Example:
+
+NOTE: Getting help when using linux Commands
+    We can use --help option after any command and it gives us detailed info about all available options.
+    Syntax: `--help`
+
+    `Options` in command line is a way that you can modify how a command works.
+     Most of commands have options to see them we can use --help options.
+     Ex: ls--> `ls -l`  -->Long formatted versions of contens
+                `ls -a`  -->This will also display the hidden and not hodden files and.
+                `ls -h`  -->Human readable size.
+
+
+`rm` command 
+Removes the files or dir with given name/path. without any options this comand only ermoves the files.
+-r or -R: Remove directories and its contents
+-f: Force to remove, it will not prompt any message.
+-i: Interactive , asks before every removal
+
+NOTE! We can combine multiple options of a command if it make sense.
+      We could provide option letters after a single `-` or 
+      We could separate each option with a space and using `-` before each option
+    ```bash
+    rm -ri directoryName = rm -r -i directoryName = rm -ir direcoryName 
+    ```
+NOTE! Whenever shell prompts a yes/no question,use letter 'y' for yes and 'n' for no.Unless otherwise prompted.
+
+
+NANO TEXT EDITOR 
+exit --> control+X then Y then Enter  Ex: nano linux  OR nano linux.txt both fine to create a file 
+escape from terminal-->control+C
+Q:How can i display the content of a file?
+A:We should use 'cat' command displays the content of the file
+
+NOTE! When you write first unique part of the file/directory name you could press `tab` 
+and it completes the rest of file/directory name for you.
+NOTE! Pressing `up arrow` brings back previous commands that will go to latest command. 
+
+Q: How can i move a file that has already been created?
+A: Using `mv` command.
+
+`mv` command
+   It moves the file/directory from one place to another. no copies created.
+   If destination already has a same file/dir name it will replace the destination content.
+   However,it could also move the file under the same directory to another name.
+   Syntax-> `mv from destination`
+-i: This will prompt a question before overridding the destination file/dolder
+-b: Will create a backup before overridding destination file/directory and move the file.
+-v: It will display what happened after mv command.
+
+`history` command
+  Shows all the command you have executed in shell.
+
+`cp` command
+  It will copy the source content and paste it to destination path.
+  Syntax-> `copy source destinationPath`
+  Common Options:
+     -i: It will promt a querstion before source overrides the destination content.
+     -r or -R: This will copy recursivly,copying the directory as well as it all content.
+     -v : displays a message when command is succesful
+     -b: Will create a backup file for destination content before it is overriden.
+   
+VI text editor 
+ PRESS `i` so start typing in vi editor 
+ When INSERT Mode is not active:
+ PRESS 'h' to go left,
+ PRESS 'l' to go right,
+ PRESS 'j' to go down,
+ PRESS 'k' to go up in the file using vi editor.
+ PRESS 'dd' to remove whichever line your curcer in.
+ PRESS 'u' to undo last action (like ctrl+Z).
+ PRESS 'yy' to copy the line
+ PRESS 'p' to past to a line
+ PRESS `o` to creates a new line under the current line you are staying
+ PRESS `0` (zero) to go beginning of a line
+ PRESS `$` to go end of a line. (Shift+4)
+ 
+ In order to save your changes:
+    Make sure you are not in INSERT MODE , 
+    PRESS 'esc' button to exit from INSERT MODE.
+    PRESS `:wq` + enter   OR if you dont want to save it `q!` 
+
+`less` command 
+   It will help you navigate throught a file. 
+   PRESS ':q' to exit from reader.
+
+To search in a file with less command:
+   PRESS `/` then type the ward you want to search + enter. 
+
+NOTE! if you get lost in any process and not able to type something to force a quit on that process press "CONTROL+C"
+
+`more` command
+    This is like a less command but views the file forward only.
+    Press `space` to go forward, to exit use ':q' or 'control+c'.
+
+`tail` command 
+  By default it displays the last 10 lines of a line  
+  -n: By using this option w could modify the number of lines we will see.
+  -f:using this option the read is happening to a file can be tracked. Very important when tracking live log files.
+
+  Ex:tail -b 3 LinuxInfo.txt will show only last 3 lines
+`head` command 
+  By default it displays the first 10 lines of a line   
+  Ex: head -n 6 LinuxInfo.txt will show first 6 lines.    -n will specify how many lines we want tot see.
+
+  
+`tac` is reversed `cat` command. Descending order. 
+
+`find`  command 
+    It allows us to search for files and directories in a directory hierarchy based on a user given expression 
+    and can perform user-specified actions on each matched file.
+
+    SYNTAX-> `find [directorytosearch] [options] [expression]`
+      *directorytosearch is a direcory where search will be completed on.
+      *options: Modifiers that after how `find` command operates.
+      *expressions:find command will do search for this expression.
+
+    Options: 
+        -name: it will search  by file name : Ex-> find -type f -name *practice
+        -iname: ignore case and search for file name
+        -type: Specify the tipe ofn a content. `d` is for directory and `f` is for file
+        -size: Search by size. Mg, Tb, Gigobyte.**Note** if you put '-' infront of the number it will look less than that number.or if you use '+'in front of the number then it will look for more than that num size 
+        -mtime: searches by last Modification time. if num has '+' its more than , if '-' its less than specified day. 
+        -user: Search by file owner.
+        -delete: It deletes the content find command finds.
+        -exec: After this option you could write a command that will be applied to all your found comments. 
+               After writing a command with `\;` in order ->EX:$ find -iname "*.txt" -exec mv {} ./Notes/LinuxNotes \;
+        -i : case insensetive (ignore case)
+        -empty: finds empty content 
+
+  #i wanna to find all text files under current directory
+  #They should have the extention .txt
+  #So i can use find -name "*.txt"   *<--WildCard
+  find -iname "n*" <--starts with N
+  find -iname "*n" <--end with N
+  find -iname "*Linux*" <--contains Linux 
+  find /bin -mtime -10   <-- all files that are modified under 10 days list of it 
+
+** NOTE! ** if you add '2>/dev/null' at the end of your comand it wont show/display error messages.
+Control Operators in Linux Bash 
+  
+** NOTE! ** Using '*' helps us to be more flexible with names. 
+Such as, searching with '*.txt' finds all the content that ends with '.txt'.
+
+
+  We can use these operators to combine commands and achive one actions.
+  1-Semicolon(;)
+    Executes the commands sequentially. (posledovatelno)  <--jsut a separator
+    * `command1` ; `command2`
+       The code above will execute command1, then command2
+       Ex:--> `cd / ; ls`
+
+  2- && (AND) Operator
+     Execute second command only if the first command is successful.
+    * `command1` && `command2`
+    find ./ -name "any" && echo "command1 is successful"
+
+    echo==print() just prints anything
+  
+  3- || (OR) Operator
+   Execute second command only if the first command is fails.
+   find / -name "any" || echo "command1 is not successful"
+
+  4- | (Pipe) Operator
+    Send output of first command as an input to second command.  (find and move)
+
+  Cut Command 
+    It can be used for extracting certain sections, specified by delimiter and field number 
+
+  5 - (\) Back Slash : if you want to add a file with a space you can use back slash
+   Ex: new\ folder will be added as 1 folder or dir
+
+
+# grep command grep  searches  for  PATTERNS  in  each  FILE.
+-grep return the line that has the match.
+-unlike the find command it will search in a file.
+   -i : this will return the match regardless of the case. Ex: grep -i linux linux.txt
+   -c : will return the number of lines matched in a file 
+   -n : display the line numbers that has the match. 
+   -o : displays 'only' exact matches from the file
+   -w : finds the match onluy if the match is a 'word' 
+   -A : using this option will help you to display as many lines as you want after a match. Ex: grep -wn -A2 1991 linux.txt
+   -B : display as many lines as you want before the match Ex: grep -n -B1 Red\ Hat linux.txt
+   -C : show the lines before and after the match Ex: grep -n -C2 libraries linux.txt
+
+## Redirection Operators 
+> Redirects the standard output of a command to file, overwritting the contents of file.
+'''command > file1''' Standard output of a command will be written inside the file1. 
+if the file1 doesnt exist and has contents, it will be replaced. Ex: cat newfile > file1
+>> Append Output. Redirects the output of a command to a file, appending the output to the file without overwritting it.
+Ex: ls >> file1
+
+Homework:
+Create a file named devops_data.csv using vi editor with information below:
+1,Deployment,2023-01-15,Complete,dev.example.com
+2,Testing,2023-02-10,In Progress,test.example.com
+3,Development,2023-03-05,Active,develop.example.com
+4,Testing,2023-03-25,Failed,test.example.com
+5,Deployment,2023-04-10,Complete,prod.example.com
+6,Maintenance,2023-04-25,In Progress,prod.example.com
+7,Deployment,2023-05-15,Failed,prod.example.com
+8,Testing,2023-06-01,Complete,test.example.com
+
+txt 
+QUESTIONS:
+Questions:
+And then do all implementations below:
+Using cut: Extract the status of all tasks (4th column) from devops_data.txt.
+
+Using cut and grep: Find all rows related to "Testing" from the devops_data.txt and then extract the date (3rd column).
+
+Using echo, |, and cut: Extract the 2nd word from the phrase "Linux is fun!" using command substitution and piping.
+
+Using && and ||: Write a one-liner command that creates a backup of devops_data.txt only if it exists and echoes a success message upon successful copy or a failure message otherwise.
+
+Using grep and | and cut: Identify all entries with "Complete" status and then extract the corresponding URLs (5th column).
+
+Using cat and |: Count the number of lines in devops_data.txt that contain the word "Deployment".
+
+Using echo and |: Use echo to print "Operating Systems: Linux, Windows, MacOS" and then use cut to extract "Windows" from the output.
+
+Using echo, |, and cut: Print a sequence number from 1 to 8, then extract the 5th number from it.
+
+Using grep and | and cut: Extract the dates (3rd column) where the status was "Failed".
+
+Using cut and |: Extract the unique domains used (5th column) from devops_data.txt without duplicates.

@@ -1,0 +1,84 @@
+# Linux OS 
+-Linux is an open sourse operating system model on UNIX. At its core is the Linux Kernel, 
+Which makes the harwware resources and is the heart of the OS.
+*stability *flexibility *popular for servers, *desktops, and *embeded systems.
+Linux is used by individuals, companies, government worldwide cox it is cost effective and customizable.
+
+## Desktop Env for Linux
+GNOME: GNU Network Object Model is a user friendly and visually appealing desktop env.
+KDE: K Desctop Env, it is highly confugurable and customizable.
+
+## Linux Distributions (Distros)
+Linux distro are versions of linux packaged by diff organization , 
+each offfering comination of Linux Kernel GNU unitllities desctop env. 
+and other software to meet specific needs
+
+Ubuntu:  Is a  popular Linux dispto developed by Cononical LTD.widely used, has great documentations.
+RedHat: Redhat enterprise Linux(RHEL) is a commertial distro of linux know for stability and support. 
+  it is wideluy used in corp nad hat offers extensive support and services, 
+  making it prefered choice for critical apps.
+
+## GNU Projects
+This project was lounched by Richard Stallman in 1983 to create a complex,
+unix compatable software systems that consists of entirely free software.
+
+Linux Operating System Component
+
+Hardware Layer :
+  This is the base physical components of your computer like CPU,RAM (random acces memmory),
+hard drive (permanent storage),graphics card etc.
+
+Linux Kernel :
+  This is the core part of the operating syste, 
+  It directly interaccts with hardware and provides services to upper leyer of the OS.
+      Functions: It handles memeory management, task scheduling, input output requests from software, etc
+
+Shell:
+  It is a user interface for accesing the Kernal services,
+  The shell listens command from user and translates them into actions Kernel can understand.
+  There are text based shells like terminal or command line and (this is what is mostly refered as Shesll)
+  But also the desctop interface could also be called as shell(rerealy).
+
+Operating System Tool :
+ These are basic utilities taht come with most Linux distributors,
+  like file managment, system monitors, and network tools,
+
+Windowing System:
+  It provides foundation for displaying graphics and handling input devices like mouce or keyboard.
+
+Desctop Environments :
+  These are graphical interfaces we see like Ghenom , KDE or XCFE.
+  They provide cohesive visual experiece with icons, wallpapers etc.
+
+Applications :
+  These are software programs that we run on our computer,like browser app, discord, etc.
+#########################################################################################
+
+Package Managers Is a software tool to automate the process of installing,updating,removing,configuring: 
+  These handles software installation,upgrades and removals.
+  They ,ake sure that all required libraries and components (dependancies)
+  are present for installed software to work corectly.
+  There are different package managers for different distro like apt, apt-get,yum,pacman,Dpkg etc.
+  **Ubuntu** :apt-get
+  **Amazon Linux** : yum
+  
+NOTES : CPU->Central Processing Unit
+           It is the brain of computer, every process will be processed from here.
+
+
+
+1: Linux is a widely-used open-source operating system.
+2: It is based on Unix and was first created by Linus Torvalds.
+3: Linux is known for its stability and security.
+4: The operating system is used on various platforms including servers, desktops, and mobile devices.
+5: There are numerous distributions (distros) of Linux, catering to various user types and needs.
+6: Popular Linux distributions include Ubuntu, Fedora, and CentOS.
+7: Linux is often used for server environments thanks to its robustness.
+8: The Linux Kernel is the core of the operating system, interfacing between hardware and software.
+9: Users interact with Linux through shell environments, using command-line interfaces (CLI) or graphical user interfaces (GUI).
+10: Linux supports a wide array of software and can be customized heavily.
+11: Various software packages can be installed using package managers like apt, yum, or pacman.
+12: Linux also encourages the use of free and open-source software (FOSS).
+13: The Linux community is widespread, and support can be found through various forums, blogs, and online platforms.
+14: Linux is utilized extensively in cloud environments, providing scalable solutions for businesses and enterprises.
+15: With numerous tools and utilities, Linux provides a versatile environment for developers and regular users alike.
