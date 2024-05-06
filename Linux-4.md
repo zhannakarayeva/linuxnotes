@@ -24,23 +24,20 @@ You specify which parr you want using options.
     2. '/' -> This is root 
 
 ** TAR **
-This command is used to combine multioppe files into single file. 
+This command is used to combine multippe files into single file. 
 and files that are combined with 'tar'command called tarball.
     - '-c' : to create archive datafiles.
     - '-x' : extract archive datafiles.
     - '-z' : Zip, to create ta date file by 'gzip'
     - '-v' : to display data.
     - '-t' : Tar -t : shows what is inside tar/zipped files. 
-Ex: tar -cf firstTarbal.tar ./reversed1.txt ./reversed2.txt <---this creates a file and adds 2 files in it
-[ec2-user@ip-172-31-16-200 ~]$ ls
-allinfo         firstTarbal.tar   line_practice  reversed1.txt  reversedfile  test  zippedfiles
-compressed.zip  greppractice.txt  linux.txt      reversed2.txt  servers.csv   z
-[ec2-user@ip-172-31-16-200 ~]$ pwd
-/home/ec2-user
-[ec2-user@ip-172-31-16-200 ~]$ tar -xf zippedfiles ~/compressed.zip
-[ec2-user@ip-172-31-16-200 ~]$ tar -tf ./compressed.zip
-./firstTarbal.tar
-[ec2-user@ip-172-31-16-200 ~]$ 
+    - '-cvf' : create single tarball file out of multiple files.
+    - '-xvf' : extract files out of a tarball file.
+    - 'tar -czvf newFile previousFile' : creates a compresed zipped file out of multiple files.
+    - 'xzvf': extract files out of a zipped file.
+    - '-tf':Displays the content of zip/tarball files
+    - '-tvf':Dissplay the content of zip/tarball files with little more details
+    - 'Order' of these options might be important in some cases.
 
 
 # Combining Multiple Commands
@@ -69,7 +66,8 @@ This command will add a new users
 Ex: sudo useradd testUser
 Ex: id testUser 
 
-2. 
+2.  'useradd'
+- This command will create a new user in the linux.
 
 
 
